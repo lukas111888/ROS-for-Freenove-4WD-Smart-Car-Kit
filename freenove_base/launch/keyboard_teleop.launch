@@ -1,0 +1,7 @@
+<!-- -*- mode: XML -*- -->
+<launch>
+    <!-- Get load parameters from yaml file -->
+    <rosparam command="load" file="$(find freenove_base)/config/keyboard_teleop.yaml" />
+    <!-- Launch keyboard teleop control launch node -->
+    <node pkg="freenove_base" type="keyboard_teleop.py" name="keyboard_teleop" output="screen"/>
+</launch>

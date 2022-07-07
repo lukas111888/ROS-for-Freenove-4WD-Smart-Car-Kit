@@ -1,0 +1,32 @@
+<launch>
+  <!--
+    Launch interface node
+  -->  
+  <node name="interface2driver" pkg="freenove_base" type="interface2driver.py" launch-prefix="sudo -E PYTHONPATH=$(env PYTHONPATH)">
+    <!--
+      parameters for messages 
+    -->
+    <param name="motor_topic" value="/car/hardware/motor"/>
+    <param name="servo_topic" value="/car/hardware/servo"/>
+    <param name="buzzer_topic" value="/car/hardware/buzzer"/>
+    <param name="line_tracking_topic" value="/car/hardware/line_tracking"/>
+    <param name="adc_topic" value="/car/hardware/adc"/>    
+    <param name="led_topic" value="/car/hardware/led"/>
+    <!--
+      parameters for service 
+    -->
+    <param name="ultrasonic_service" value="/car/hardware/ultrasonic"/>
+    <!--
+      parameters for servos' offset 
+    -->
+    <param name="offset_h" type="int" value="0"/>
+    <param name="offset_v" type="int" value="0"/>
+  </node>
+
+  <!--
+    Launch keyboard teleop control launch
+  -->  
+  <include file="$(find freenove_base)/launch/keyboard_teleop.launch"/>
+  
+
+</launch>
